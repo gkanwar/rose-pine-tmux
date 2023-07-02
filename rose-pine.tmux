@@ -119,7 +119,7 @@ fi
   setw window-status-separator "  "
   setw window-status-style "fg=${thm_subtle},bg=${thm_base}"
   setw window-status-activity-style "fg=${thm_base},bg=${thm_rose}"
-  setw window-status-current-style "fg=${thm_gold},bg=${thm_base}"
+  setw window-status-current-style "fg=${thm_gold},bg=${thm_base},bold"
 
   # Statusline base command configuration: No need to touch anything here
   # Placement is handled below
@@ -164,16 +164,13 @@ fi
   # These variables are the defaults so that the setw and set calls are easier to parse
 
   local show_window
-  readonly show_window=" #[fg=$thm_subtle]$field_separator"
+  readonly show_window="#[fg=$thm_subtle]$field_separator "
 
   local show_window_in_window_status
-  readonly show_window_in_window_status="#[fg=$thm_fg,bg=$thm_bg] #W #[fg=$thm_bg,bg=$thm_foam] #I#[fg=$thm_foam,bg=$thm_bg]$field_separator#[fg=$thm_fg,bg=$thm_bg,nobold,nounderscore,noitalics] "
-
-  local show_window_in_window_status_current
-  readonly show_window_in_window_status_current="#[fg=$thm_fg] #W #[fg=$thm_bg] #I#[fg=$thm_orange,bg=$thm_bg]$field_separator#[fg=$thm_fg,bg=$thm_bg,nobold,nounderscore,noitalics] "
+  readonly show_window_in_window_status="#[fg=$thm_fg,bg=$thm_bg]#I #[fg=$thm_bg,bg=$thm_foam]#W#[fg=$thm_fg,bg=$thm_bg,nobold,nounderscore,noitalics]"
 
   local show_session
-  readonly show_session=" #[fg=$thm_text] #[fg=$thm_text]#S "
+  readonly show_session=" #[fg=$thm_text] #[fg=$thm_text]#S"
 
   local show_user
   readonly show_user="#[fg=$thm_subtle] #[fg=$thm_iris]#(whoami) "
@@ -190,10 +187,6 @@ fi
   local show_directory_in_window_status
   readonly show_directory_in_window_status="#[fg=$thm_bg] #I #[fg=$thm_fg] #{b:pane_current_path} "
 
-  local show_directory_in_window_status_current
-  readonly show_directory_in_window_status_current=" #I #[fg=$thm_iris,bg=$thm_bg] #{b:pane_current_path}"
-
-
   # Left column placement: Determined by the set status-left on line 236
 
   
@@ -207,12 +200,8 @@ fi
 
   # Window status by default shows the current directory basename
   local window_status_format=$show_directory_in_window_status
-  local window_status_current_format=$show_directory_in_window_status_current
-
-
   if [[ "$wt_enabled" == "on" ]]; then
       window_status_format=$show_window_in_window_status
-      window_status_current_format=$show_window_in_window_status
   fi
 
 
@@ -234,14 +223,12 @@ fi
 
 
   set status-left "$show_session$show_window"
-
   set status-right "$right_column1" #$right_column2
 
-  set -g status-interval 1
+  set status-interval 1
 
   setw window-status-format "$window_status_format"
-
-  setw window-status-current-format "$window_status_current_format"
+  setw window-status-current-format "$window_status_format"
 
   
   # tmux integrated modes 
