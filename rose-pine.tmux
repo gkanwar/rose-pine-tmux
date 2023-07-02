@@ -117,7 +117,7 @@ fi
 
   # Windows
   setw window-status-separator "  "
-  setw window-status-style "fg=${thm_iris},bg=${thm_base}"
+  setw window-status-style "fg=${thm_subtle},bg=${thm_base}"
   setw window-status-activity-style "fg=${thm_base},bg=${thm_rose}"
   setw window-status-current-style "fg=${thm_gold},bg=${thm_base}"
 
@@ -164,7 +164,7 @@ fi
   # These variables are the defaults so that the setw and set calls are easier to parse
 
   local show_window
-  readonly show_window=" #[fg=$thm_subtle] #[fg=$thm_rose]#W$field_separator"
+  readonly show_window=" #[fg=$thm_subtle]$field_separator"
 
   local show_window_in_window_status
   readonly show_window_in_window_status="#[fg=$thm_fg,bg=$thm_bg] #W #[fg=$thm_bg,bg=$thm_foam] #I#[fg=$thm_foam,bg=$thm_bg]$field_separator#[fg=$thm_fg,bg=$thm_bg,nobold,nounderscore,noitalics] "
@@ -235,7 +235,7 @@ fi
 
   set status-left "$show_session$show_window"
 
-  set status-right "$right_column1$right_column2"
+  set status-right "$right_column1" #$right_column2
 
   set -g status-interval 1
 
