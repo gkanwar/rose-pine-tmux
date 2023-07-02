@@ -116,7 +116,7 @@ fi
   set display-panes-colour "${thm_gold}"
 
   # Windows
-  setw window-status-separator "  "
+  setw window-status-separator "  "
   setw window-status-style "fg=${thm_iris},bg=${thm_base}"
   setw window-status-activity-style "fg=${thm_base},bg=${thm_rose}"
   setw window-status-current-style "fg=${thm_gold},bg=${thm_base}"
@@ -164,25 +164,25 @@ fi
   # These variables are the defaults so that the setw and set calls are easier to parse
 
   local show_window
-  readonly show_window=" #[fg=$thm_subtle] #[fg=$thm_rose]#W$left_separator"
+  readonly show_window=" #[fg=$thm_subtle] #[fg=$thm_rose]#W$field_separator"
 
   local show_window_in_window_status
-  readonly show_window_in_window_status="#[fg=$thm_fg,bg=$thm_bg] #W #[fg=$thm_bg,bg=$thm_foam] #I#[fg=$thm_foam,bg=$thm_bg]$left_separator#[fg=$thm_fg,bg=$thm_bg,nobold,nounderscore,noitalics] "
+  readonly show_window_in_window_status="#[fg=$thm_fg,bg=$thm_bg] #W #[fg=$thm_bg,bg=$thm_foam] #I#[fg=$thm_foam,bg=$thm_bg]$field_separator#[fg=$thm_fg,bg=$thm_bg,nobold,nounderscore,noitalics] "
 
   local show_window_in_window_status_current
-  readonly show_window_in_window_status_current="#[fg=$thm_fg] #W #[fg=$thm_bg] #I#[fg=$thm_orange,bg=$thm_bg]$left_separator#[fg=$thm_fg,bg=$thm_bg,nobold,nounderscore,noitalics] "
+  readonly show_window_in_window_status_current="#[fg=$thm_fg] #W #[fg=$thm_bg] #I#[fg=$thm_orange,bg=$thm_bg]$field_separator#[fg=$thm_fg,bg=$thm_bg,nobold,nounderscore,noitalics] "
 
   local show_session
   readonly show_session=" #[fg=$thm_text] #[fg=$thm_text]#S "
 
   local show_user
-  readonly show_user="#[fg=$thm_iris]#(whoami) #[fg=$thm_subtle]$right_separator#[fg=$thm_subtle] "
+  readonly show_user="#[fg=$thm_subtle] #[fg=$thm_iris]#(whoami) "
 
   local show_host
-  readonly show_host=" #[fg=$thm_text]#H #[fg=$thm_subtle]$right_separator#[fg=$thm_subtle]󰒋"
+  readonly show_host="#[fg=$thm_subtle]󰒋 #[fg=$thm_text]#H"
 
   local show_date_time
-  readonly show_date_time="$field_separator#[fg=$thm_foam]$date_time #[fg=$thm_subtle]$right_separator#[fg=$thm_subtle]󰃰"
+  readonly show_date_time="$field_separator#[fg=$thm_foam]$date_time"
 
   local show_directory
   readonly show_directory=" #[fg=$thm_subtle] #[fg=$thm_rose]#{b:pane_current_path} #{?client_prefix,$spacer#[fg=${thm_love}]$right_separator#[fg=$thm_bg] $field_separator"
